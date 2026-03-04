@@ -1,0 +1,43 @@
+.mainImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgb(35, 30, 30);
+}
+
+.avatar:not(:first-child) {
+  margin-left: -15px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trustText {
+  margin-left: 15px;
+  font-family: Poppins, sans-serif;
+}
+
+.trustText span {
+  color: blue;
+  font-weight: 600;
+}
+
+.avatar:hover {
+  transform: scale(1.05);   /* very small increase */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.959);
+  z-index: 2;
+}
+
+.avatar:hover img {
+  transform: scale(1.05);
+}
