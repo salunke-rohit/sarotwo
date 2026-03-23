@@ -1,6 +1,9 @@
 import "./Hero.css"
 import Slogn from "../common/Slogn";
 import saro from "../../assets/saro2.jpeg";
+import SocialCard from "../common/SocialCard";
+import SocialSection from "../common/SocialSection";
+import Social from "../common/Social";
 
 function Hero() {
   return (
@@ -16,11 +19,13 @@ function Hero() {
         </h1>
 
         <div className="hero-buttons">
-          <button className="primary">Let's Explore</button>
-          <button className="secondary">Contact Us</button>
+          <button className="primary">View My Work</button>
+          <button className="secondary">Downlode Resume</button>
         </div>
       </div>
       <Slogn className="webSlogn" />
+      <Social/>
+      <SocialSection/>
     </section>
   );
 }

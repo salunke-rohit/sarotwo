@@ -1,0 +1,15 @@
+.sectionTitle{
+
+  display:inline-block;
+  margin-top: 30px;
+  padding:12px 30px;
+  border-radius:30px;
+  background:#f3f3f3;
+  font-size:14px;
+  font-weight:500;
+  color:#6b7a8f;
+
+  box-shadow: 
+    6px 6px 10px rgba(0,0,0,0.1),
+    -6px -6px 10px rgba(255,255,255,0.7);
+}

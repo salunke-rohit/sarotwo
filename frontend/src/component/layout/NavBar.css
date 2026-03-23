@@ -54,16 +54,21 @@ body {
   display: block;
 }
 
+.nav-link {
+  text-decoration: none;   /* ❌ remove underline */
+  color: black;            /* 🎯 set your color */
+}
+
 /* TEXT */
-.nav-left span,
-.nav-right span {
+.nav-left .nav-link,
+.nav-right .nav-link {
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-.nav-left span:hover,
-.nav-right span:hover {
+.nav-left .nav-link:hover,
+.nav-right .nav-link:hover {
   color: #2563eb;
 }
 
