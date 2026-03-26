@@ -13,7 +13,9 @@ export default function NavBar() {
         </div>
 
         <div className="nav-logo">
-          <img src={logo} alt="logo" />
+          <Link to="/">
+                    <img src={logo} alt="logo" />
+          </Link>
         </div>
 
         <div className="nav-right">

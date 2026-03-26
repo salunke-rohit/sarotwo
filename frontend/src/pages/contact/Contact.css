@@ -1,0 +1,90 @@
+.contact-section {
+  margin-top: 0px;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  align-items: center;
+}
+
+/* CARD */
+.contact-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* soft Apple shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* TITLE */
+.contact-section h2 {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  color: #1d1d1f;
+}
+
+/* INPUTS */
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  font-size: 15px;
+  outline: none;
+  background: #fafafa;
+  transition: all 0.25s ease;
+}
+
+/* FOCUS (smooth Apple feel) */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0071e3;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+/* BUTTON */
+.contact-form button {
+  background: #0071e3;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* BUTTON HOVER */
+.contact-form button:hover {
+  background: #005bb5;
+  transform: translateY(-2px);
+}
+
+/* BUTTON ACTIVE */
+.contact-form button:active {
+  transform: scale(0.98);
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #1d1d1f;
+}

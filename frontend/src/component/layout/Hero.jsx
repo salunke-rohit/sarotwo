@@ -4,8 +4,19 @@ import saro from "../../assets/saro2.jpeg";
 import SocialCard from "../common/SocialCard";
 import SocialSection from "../common/SocialSection";
 import Social from "../common/Social";
+import { Link } from "react-router-dom";
 
 function Hero() {
+
+  const downloadResume = () => {
+  const link = document.createElement("a");
+  link.href = "/resume.pdf";  // path from public folder
+  link.download = "My_Resume.pdf"; // file name after download
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
   return (
     <section className="hero">
       <div className="hero-image">
@@ -19,8 +30,10 @@ function Hero() {
         </h1>
 
         <div className="hero-buttons">
-          <button className="primary">View My Work</button>
-          <button className="secondary">Downlode Resume</button>
+          <Link to="/projects">
+          <button  className="primary">View My Work</button>
+          </Link>
+          <button onClick={downloadResume} className="secondary">Downlode Resume</button>
         </div>
       </div>
       <Slogn className="webSlogn" />
