@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Contact.css";
+import axios from "axios";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -8,32 +9,62 @@ export default function Contact() {
     message: "",
   });
 
+  const [success, setSuccess] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(formData);
-    alert("Message sent successfully ");
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/contact",
+        formData
+      );
 
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+      // ✅ Success Message
+      setSuccess("Message sent successfully ✅");
+      setErrorMsg("");
+
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      // Auto hide after 3 sec
+      setTimeout(() => {
+        setSuccess("");
+      }, 3000);
+
+    } catch (error) {
+      console.log(error.response?.data || error.message);
+
+      setErrorMsg("Something went wrong ❌");
+      setSuccess("");
+
+      setTimeout(() => {
+        setErrorMsg("");
+      }, 3000);
+    }
   }
 
   return (
     <section className="contact-section">
-
-      {/* 🔥 Heading Added */}
       <div className="contact-container">
         <h2 className="contact-title">Get in Touch</h2>
 
+        {/* ✅ Success Message */}
+        {success && <p className="success-msg">{success}</p>}
+
+        {/* ❌ Error Message */}
+        {errorMsg && <p className="error-msg">{errorMsg}</p>}
+
         <form className="contact-form" onSubmit={handleSubmit}>
-          
           <input
             type="text"
             name="name"
@@ -64,7 +95,6 @@ export default function Contact() {
           <button type="submit">Send Message</button>
         </form>
       </div>
-
     </section>
   );
 }
