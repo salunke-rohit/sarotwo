@@ -72,22 +72,19 @@ body {
 /* 📱 MOBILE */
 @media (max-width: 600px) {
   .navbar {
-    grid-template-columns: 1fr; /* stack */
-    text-align: center;
+    grid-template-columns: 1fr auto 1fr; /* SAME AS DESKTOP ✅ */
     border-radius: 20px;
-    gap: 10px;
+    padding: 10px;
   }
 
-  /* 🔥 FIX ALIGNMENT */
   .nav-left,
   .nav-right {
-    justify-content: center;   /* center instead of left/right */
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 10px;
+    flex-wrap: wrap; /* allows wrapping if space less */
   }
 
-  /* 🔥 FORCE LOGO CENTER */
   .nav-logo {
     display: flex;
     justify-content: center;
@@ -95,8 +92,11 @@ body {
   }
 
   .nav-logo img {
-    height: 50px;
-    margin: 0 auto; /* extra safety */
+    height: 45px; /* smaller logo for mobile */
+  }
+
+  .nav-link {
+    font-size: 12px; /* smaller text */
   }
 }
 
