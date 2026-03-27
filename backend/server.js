@@ -9,7 +9,11 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "https://your-frontend-url.vercel.app"],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use("/api", contactRoutes);
 
 app.get("/", (req, res) => {
