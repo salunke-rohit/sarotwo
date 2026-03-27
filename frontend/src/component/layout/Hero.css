@@ -1,35 +1,32 @@
-
+/* 🔥 HERO */
 .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* important */
+  justify-content: flex-start; /* SAME */
   padding-top: 20px;
   text-align: center;
-
-  /* grid background */
   background-color: #f6f6f6;
-
   background-size: 40px 40px;
 }
 
 /* IMAGE */
 .hero-image img {
   width: 100%;
-  max-width: 450px;   /* THIS controls size */
+  max-width: 450px; /* SAME */
   height: auto;
 }
 
 /* TEXT */
 .hero-content h1 {
-  font-size: 64px;
+  font-size: 64px; /* SAME desktop */
   font-weight: 500;
   line-height: 1.2;
   font-family: 'Poppins', sans-serif;
   color: #242020;
   margin-bottom: 20px;
-  margin-top: -100px;   /* pushes text 10px upward */
+  margin-top: -100px; /* SAME */
 }
 
 .hero-content span {
@@ -80,4 +77,48 @@
 
 .webSlogn {
   padding-top: 30px;
+}
+
+/* ========================= */
+/* 📱 MOBILE FIX (ONLY ADJUSTMENTS) */
+/* ========================= */
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 34px; /* reduce only */
+    margin-top: -30px; /* adjust, not remove */
+  }
+
+  .hero-image img {
+    max-width: 280px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .primary,
+  .secondary {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+}
+
+/* ========================= */
+/* 📲 TABLET FIX */
+/* ========================= */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .hero-content h1 {
+    font-size: 48px;
+    margin-top: -60px;
+  }
+
+  .hero-image img {
+    max-width: 350px;
+  }
+
+  .primary,
+  .secondary {
+    font-size: 15px;
+  }
 }

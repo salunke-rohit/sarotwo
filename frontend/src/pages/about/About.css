@@ -1,13 +1,13 @@
 .about-hero {
   margin-top: 0px;
-   min-height: 100vh;
-  padding: 200px 80px 0 80px; /* 🔥 top = 200px */
+  min-height: 100vh;
+  padding: 0 80px;
   background: #f3f3f3;
   display: flex;
   align-items: center;
-  padding: 0 80px;
 }
 
+/* CONTENT */
 .about-content {
   display: flex;
   justify-content: space-between;
@@ -18,6 +18,7 @@
 /* LEFT TEXT */
 .about-text {
   max-width: 900px;
+  animation: slideLeft 1s ease;
 }
 
 .about-text h1 {
@@ -44,7 +45,6 @@
 
 /* BUTTON */
 .resume-btn {
-    
   background: #ff5c5c;
   color: white;
   padding: 12px 20px;
@@ -52,6 +52,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .resume-btn:hover {
@@ -59,6 +60,10 @@
 }
 
 /* RIGHT IMAGE */
+.about-image {
+  animation: fadeIn 1.5s ease;
+}
+
 .about-image img {
   width: 250px;
   height: 250px;
@@ -67,14 +72,79 @@
   border: 8px solid #e0e0e0;
 }
 
-.about-text {
-  animation: slideLeft 1s ease;
+/* ========================= */
+/* 📱 MOBILE FIX */
+/* ========================= */
+@media (max-width: 600px) {
+  .about-hero {
+    padding: 40px 20px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .about-text h1 {
+    font-size: 26px;
+  }
+
+  .about-text h2 {
+    font-size: 22px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .about-image img {
+    width: 180px;
+    height: 180px;
+  }
 }
 
-.about-image {
-  animation: fadeIn 1.5s ease;
+/* ========================= */
+/* 📲 TABLET FIX */
+/* ========================= */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .about-hero {
+    padding: 60px 40px;
+  }
+
+  .about-content {
+    gap: 30px;
+  }
+
+  .about-text h1 {
+    font-size: 32px;
+  }
+
+  .about-text h2 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+  }
+
+  .about-image img {
+    width: 220px;
+    height: 220px;
+  }
 }
 
+/* ========================= */
+/* 💻 LAPTOP = ORIGINAL */
+/* ========================= */
+@media (min-width: 1024px) {
+  .about-hero {
+    padding: 0 80px;
+  }
+}
+
+/* ANIMATIONS */
 @keyframes slideLeft {
   from {
     transform: translateX(-50px);
@@ -89,7 +159,4 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-.resume-btn {
-  text-decoration: none;   /* 🔥 removes underline */
 }

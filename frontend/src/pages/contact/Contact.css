@@ -1,35 +1,45 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* SECTION */
 .contact-section {
-  margin-top: 0px;
   min-height: 100vh;
   background: #ffffff;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* desktop center */
   padding: 40px;
-  align-items: center;
 }
 
-/* CARD */
+/* CONTAINER */
+.contact-container {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* TITLE */
+.contact-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #1d1d1f;
+}
+
+/* FORM CARD */
 .contact-form {
   background: #ffffff;
   padding: 40px;
   border-radius: 20px;
-  width: 100%;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 
-  /* soft Apple shadow */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* TITLE */
-.contact-section h2 {
-  font-size: 32px;
-  font-weight: 600;
-  text-align: center;
-  color: #1d1d1f;
 }
 
 /* INPUTS */
@@ -44,7 +54,7 @@
   transition: all 0.25s ease;
 }
 
-/* FOCUS (smooth Apple feel) */
+/* FOCUS */
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #0071e3;
@@ -76,35 +86,70 @@
   transform: scale(0.98);
 }
 
-.contact-container {
-  width: 100%;
-  max-width: 500px;
-  text-align: center;
-}
-
-.contact-title {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 25px;
-  color: #1d1d1f;
-}
-
+/* SUCCESS */
 .success-msg {
   background: #d4edda;
   color: #155724;
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 15px;
-  text-align: center;
   font-weight: 500;
 }
 
+/* ERROR */
 .error-msg {
   background: #f8d7da;
   color: #721c24;
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 15px;
-  text-align: center;
   font-weight: 500;
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width: 600px) {
+  .contact-section {
+    align-items: flex-start; /* 🔥 fix top gap */
+    padding: 20px 15px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .contact-form {
+    padding: 25px;
+    gap: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* ========================= */
+/* 📲 TABLET */
+/* ========================= */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .contact-section {
+    align-items: flex-start; /* reduce spacing */
+    padding: 30px 20px;
+  }
+
+  .contact-title {
+    font-size: 28px;
+  }
+
+  .contact-form {
+    padding: 30px;
+  }
 }

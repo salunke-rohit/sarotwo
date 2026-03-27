@@ -1,5 +1,5 @@
 import "./About.css";
-import profile from "../../assets/profile.jpg"; // add your image
+import profile from "../../assets/profile.png"; // add your image
 
 export default function About() {
   return (
