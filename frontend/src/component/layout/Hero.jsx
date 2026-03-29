@@ -33,7 +33,7 @@ function Hero() {
           <Link to="/projects">
           <button  className="primary">View My Work</button>
           </Link>
-          <button onClick={downloadResume} className="secondary">Downlode Resume</button>
+          <button onClick={downloadResume} className="secondary">Download resume</button>
         </div>
       </div>
       <Slogn className="webSlogn" />
