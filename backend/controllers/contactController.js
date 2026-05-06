@@ -13,8 +13,14 @@ const createContact = async (req, res) => {
         res.status(201).json(contact);
 
     } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
+
+   console.log("CONTACT ERROR:", err);
+
+   res.status(500).json({
+      success: false,
+      message: err.message
+   });
+}
 };
 
 export default createContact;
