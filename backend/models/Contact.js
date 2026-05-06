@@ -25,7 +25,6 @@ const contactSchema = new mongoose.Schema(
 );
 
 // ✅ DEFINE the model
-const Contact = mongoose.model("Contact", contactSchema);
+const Contact = mongoose.models.Contact || mongoose.model("Contact", contactSchema);
 
-// ✅ EXPORT the SAME name
 export default Contact;

@@ -1,22 +1,23 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const connectDB = async () => {
 
-    try {
+  try {
 
-        const conn = await mongoose.connect(process.env.MONGO_URI);
+    mongoose.set("strictQuery", true);
 
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
+      serverSelectionTimeoutMS: 30000
+    });
 
-    } catch (err) {
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
 
-        console.log("MongoDB connection failed:", err.message);
+  } catch (error) {
 
-        process.exit(1);
-    }
+    console.log("MongoDB Error:", error.message);
+
+    process.exit(1);
+  }
 };
 
 export default connectDB;
