@@ -5,8 +5,8 @@ import connectDB from "./config/db.js";
 import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
+
 const app = express();
-connectDB();
 
 app.use(express.json());
 
@@ -25,7 +25,19 @@ app.get("/", (req, res) => {
   res.send("Portfolio Backend Running ✅");
 });
 
+const startServer = async () => {
+  try {
 
-app.listen ( process.env.PORT , ()=>{
-    console.log(`port is connected on ${process.env.PORT}`)
-})
+    // Wait for MongoDB connection
+    await connectDB();
+
+    app.listen(process.env.PORT, () => {
+      console.log(`Server running on port ${process.env.PORT}`);
+    });
+
+  } catch (error) {
+    console.log("Server failed:", error.message);
+  }
+};
+
+startServer();
