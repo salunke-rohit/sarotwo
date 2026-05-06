@@ -1,52 +1,65 @@
 import { useState } from "react";
-import "./Contact.css";
 import axios from "axios";
+import "./Contact.css";
 
 export default function Contact() {
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: ""
   });
 
   const [success, setSuccess] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
+  // Handle Input Change
   function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   }
 
+  // Handle Form Submit
   async function handleSubmit(e) {
+
     e.preventDefault();
 
     try {
+
       const res = await axios.post(
-        "https://sarotwo-backend.onrender.com/api/contact",
+        `${import.meta.env.VITE_API_URL}/api/contact`,
         formData
       );
 
-      // ✅ Success Message
+      console.log(res.data);
+
+      // Success Message
       setSuccess("Message sent successfully ✅");
       setErrorMsg("");
 
-      // Clear form
+      // Clear Form
       setFormData({
         name: "",
         email: "",
-        message: "",
+        message: ""
       });
 
-      // Auto hide after 3 sec
+      // Auto Hide Success
       setTimeout(() => {
         setSuccess("");
       }, 3000);
 
     } catch (error) {
+
       console.log(error.response?.data || error.message);
 
       setErrorMsg("Something went wrong ❌");
       setSuccess("");
 
+      // Auto Hide Error
       setTimeout(() => {
         setErrorMsg("");
       }, 3000);
@@ -55,16 +68,32 @@ export default function Contact() {
 
   return (
     <section className="contact-section">
+
       <div className="contact-container">
-        <h2 className="contact-title">Get in Touch</h2>
 
-        {/* ✅ Success Message */}
-        {success && <p className="success-msg">{success}</p>}
+        <h2 className="contact-title">
+          Get in Touch
+        </h2>
 
-        {/* ❌ Error Message */}
-        {errorMsg && <p className="error-msg">{errorMsg}</p>}
+        {/* Success Message */}
+        {success && (
+          <p className="success-msg">
+            {success}
+          </p>
+        )}
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        {/* Error Message */}
+        {errorMsg && (
+          <p className="error-msg">
+            {errorMsg}
+          </p>
+        )}
+
+        <form
+          className="contact-form"
+          onSubmit={handleSubmit}
+        >
+
           <input
             type="text"
             name="name"
@@ -92,9 +121,14 @@ export default function Contact() {
             required
           ></textarea>
 
-          <button type="submit">Send Message</button>
+          <button type="submit">
+            Send Message
+          </button>
+
         </form>
+
       </div>
+
     </section>
   );
 }
