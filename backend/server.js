@@ -13,7 +13,8 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://sarotwo.vercel.app"
+    "https://sarotwo.vercel.app",
+    "https://sarotwo-73mn6g246-salunke-rohits-projects.vercel.app"
   ],
   methods: ["GET", "POST"],
   credentials: true
